@@ -1,7 +1,7 @@
 name: "Airplay 2 for Home Assistant"
 description: "Adds Airplay 2 capabilities to Home Assistant"
 url: https://github.com/haimca/AirPlay2
-version: "0.1.5"
+version: "0.1.6"
 slug: "airplay2"
 init: false
 arch:
