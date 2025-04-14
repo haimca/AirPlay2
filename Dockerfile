@@ -2,7 +2,8 @@ FROM debian:bookworm-slim AS builder
 RUN apt update
 RUN apt -y install --no-install-recommends build-essential git systemd autoconf automake libtool \
     libpopt-dev libconfig-dev libasound2-dev avahi-daemon libavahi-client-dev libssl-dev libsoxr-dev \
-    libplist-dev libsodium-dev libavutil-dev libpulse-dev libavcodec-dev libavformat-dev uuid-dev libgcrypt-dev xxd supervisor jq libmosquitto-dev
+    libplist-dev libsodium-dev libavutil-dev libpulse-dev libavcodec-dev libavformat-dev uuid-dev \
+    squeezelite alsa-utils libgcrypt-dev xxd supervisor jq libmosquitto-dev
 RUN git config --global http.sslverify false
 
 RUN git clone https://github.com/mikebrady/alac.git \
@@ -47,6 +48,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY apply-config.sh apply-config.sh
 COPY start-dbus.sh start-dbus.sh
 COPY shairport-sync.conf /etc/shairport-sync.conf
+
 RUN apt -y install libasound2
 RUN chmod +x apply-config.sh
 RUN chmod +x start-dbus.sh
