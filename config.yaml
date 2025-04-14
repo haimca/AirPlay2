@@ -48,4 +48,4 @@ schema:
   resync_threshold_in_seconds: str?
   resync_recovery_time_in_seconds: str?
   audio_backend_buffer_desired_length_in_seconds: str?
-image: "haimc1/shairport:latest"
+image: "haimc1/shairport"
